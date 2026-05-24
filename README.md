@@ -1,185 +1,252 @@
-# E-Commerce Customer & Sales Analytics using SQL
-## Project Overview
+# 🛒 E-Commerce Customer & Sales Analytics — SQL Business Case Study
 
-This project is an end-to-end SQL Business Case Study performed on an E-Commerce dataset containing customer transactions, product purchases, reviews, and user engagement events.
+> End-to-end SQL analysis of an e-commerce platform covering sales performance, customer behavior, retention trends, conversion funnel, product performance, churn risk, and Customer Lifetime Value (CLV).
 
-The objective of this project is to analyze:
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-CC2927?style=flat-square&logo=microsoftsqlserver&logoColor=white)
+![Data Analysis](https://img.shields.io/badge/Data%20Analysis-0078D4?style=flat-square&logo=microsoft&logoColor=white)
 
-sales performance
-customer behavior
-retention trends
-conversion funnel
-product performance
-churn risk
-customer lifetime value (CLV)
+---
 
-using advanced SQL queries and business analytics techniques.
+## 📑 Table of Contents
 
-## Dataset Information
+- [Project Overview](#-project-overview)
+- [Dataset Information](#-dataset-information)
+- [Business Problems Solved](#-business-problems-solved)
+- [SQL Concepts Used](#-sql-concepts-used)
+- [Key KPIs](#-key-kpis)
+- [Monthly Sales Trend](#-monthly-sales-trend)
+- [Top Customers](#-top-revenue-generating-customers)
+- [Product Performance](#-product-performance-analysis)
+- [Conversion Funnel](#-customer-engagement-funnel)
+- [Churn Analysis](#-customer-churn-analysis)
+- [RFM Analysis](#-rfm-analysis)
+- [Business Insights](#-business-insights)
+- [Recommendations](#-recommendations)
+- [Future Improvements](#-future-improvements)
 
-The dataset contains the following tables:
+---
 
-### Table Name	           Description
-- users	                    Customer details
-- orders	                  Order transactions
-- order_items	              Product-level order details
-- reviews	                  Product ratings and feedback
-- events	                  Customer interaction events
+## 📝 Project Overview
 
-## Business Problems Solved
+This project is an end-to-end SQL Business Case Study performed on an e-commerce dataset containing customer transactions, product purchases, reviews, and user engagement events.
 
-This project answers important business questions such as:
+The objective is to analyze sales performance, customer behavior, retention trends, conversion funnels, product performance, churn risk, and Customer Lifetime Value (CLV) using advanced SQL queries and business analytics techniques.
 
-- What is the total revenue generated?
-- Which months generated the highest sales?
-- Who are the top revenue-generating customers?
-- What is the customer retention rate?
-- Which products are best-selling?
-- Which products have the highest and lowest ratings?
-- Which users are most active?
-- What does the customer conversion funnel look like?
-- Which customers are at risk of churn?
-- What is the Customer Lifetime Value (CLV)?
-- How can customers be segmented using RFM analysis?
-  
-## SQL Concepts Used
+**Pipeline:**
+```
+Raw Dataset → SQL Analysis → KPI Reporting → Insights → Recommendations
+```
 
-This project demonstrates strong SQL skills using:
+---
 
--JOINs
-- GROUP BY
-- Aggregate Functions
-- CTEs
-- Subqueries
-- Window Functions
-- DENSE_RANK()
-- LAG()
-- CASE WHEN
-- Date Functions
-- RFM Analysis
+## 📂 Dataset Information
 
-## Key Project KPIs
-### KPI	Value
-Total Revenue	             11,918,668.95
-Total Orders	             20,000
-Total Items Sold	         43,525
-Total Events	             80,000
-Average Order Value	       595.93
-Customer Retention Rate	   68.26%
+| Table | Description |
+|-------|-------------|
+| `users` | Customer details and demographics |
+| `orders` | Order transactions and revenue |
+| `order_items` | Product-level order details |
+| `reviews` | Product ratings and customer feedback |
+| `events` | Customer interaction and engagement events |
 
-### Monthly Sales Trend
-#### Month	     Revenue
-- July	         1,137,336.74
-- May	           1,091,377.77
-- April	         1,077,469.41
-- June	         1,056,448.28
+> ER Diagram is available in the repository: `ER Diagram.png`
 
-#### Insight
+---
 
-Sales peaked during July while revenue significantly dropped during November and December, indicating possible seasonal demand fluctuations.
+## ❓ Business Problems Solved
 
-### Top Revenue-Generating Customers
-Customer ID	      Customer Name	     Revenue
-U009931	          Meagan Case	       44,286.70
-U009903	          Jessica Russell	   43,466.35
-U006233         	Willie Esparza	   43,060.16
-U006469         	Audrey Ware	       40,431.01
+1. What is the total revenue generated?
+2. Which months generated the highest sales?
+3. Who are the top revenue-generating customers?
+4. What is the customer retention rate?
+5. Which products are best-selling?
+6. Which products have the highest and lowest ratings?
+7. Which users are most active?
+8. What does the customer conversion funnel look like?
+9. Which customers are at risk of churn?
+10. What is the Customer Lifetime Value (CLV)?
+11. How can customers be segmented using RFM analysis?
 
-#### Insight
+---
 
-A small group of high-value customers contributes a significant portion of overall revenue.
+## 🧠 SQL Concepts Used
 
-## Product Performance Analysis
-#### Best Selling Products
-##### Product ID	Units Sold
-      P001354	     54
-      P000027	     53
-      P000244	     53
+| Concept | Usage |
+|---------|-------|
+| `JOINs` | Combining users, orders, order_items, reviews, events |
+| `GROUP BY` + Aggregate Functions | Revenue totals, order counts, averages |
+| `CTEs` | Modular query building for RFM and CLV |
+| `Subqueries` | Filtering and nested logic |
+| `Window Functions` | Ranking and trend analysis |
+| `DENSE_RANK()` | Top customer and product ranking |
+| `LAG()` | Day-over-day and month-over-month comparisons |
+| `CASE WHEN` | Segmentation and conditional logic |
+| Date Functions | Monthly trend extraction |
+| RFM Analysis | Recency, Frequency, Monetary segmentation |
+
+---
+
+## 📊 Key KPIs
+
+| KPI | Value |
+|-----|-------|
+| Total Revenue | ₹1,19,18,668.95 |
+| Total Orders | 20,000 |
+| Total Items Sold | 43,525 |
+| Total Events | 80,000 |
+| Average Order Value (AOV) | ₹595.93 |
+| Customer Retention Rate | 68.26% |
+
+---
+
+## 📅 Monthly Sales Trend
+
+| Month | Revenue |
+|-------|---------|
+| July | ₹11,37,336.74 |
+| May | ₹10,91,377.77 |
+| April | ₹10,77,469.41 |
+| June | ₹10,56,448.28 |
+
+**Insight:** Sales peaked during July. Revenue dropped significantly in November and December, indicating seasonal demand fluctuations that could be addressed with targeted campaigns.
+
+---
+
+## 👑 Top Revenue-Generating Customers
+
+| Customer ID | Customer Name | Revenue |
+|-------------|---------------|---------|
+| U009931 | Meagan Case | ₹44,286.70 |
+| U009903 | Jessica Russell | ₹43,466.35 |
+| U006233 | Willie Esparza | ₹43,060.16 |
+| U006469 | Audrey Ware | ₹40,431.01 |
+
+**Insight:** A small group of high-value customers contributes a significant portion of overall revenue — a classic Pareto distribution. These customers are priority targets for loyalty programs.
+
+---
+
+## 📦 Product Performance Analysis
+
+### Best-Selling Products (by Units Sold)
+
+| Product ID | Units Sold |
+|------------|-----------|
+| P001354 | 54 |
+| P000027 | 53 |
+| P000244 | 53 |
+
 ### Highest Rated Products
-#### Product ID	     Average Rating
-     P000904	      5.00
-     P000844	      5.00
-     P000833	      5.00
+
+| Product ID | Average Rating |
+|------------|---------------|
+| P000904 | 5.00 ⭐ |
+| P000844 | 5.00 ⭐ |
+| P000833 | 5.00 ⭐ |
+
 ### Lowest Rated Products
-#### Product ID	 Average Rating
-     P001634	   2.00
-     P001271	   2.00
-     P000974	   2.00
-     
-#### Insight
 
-Some products show poor customer satisfaction despite active sales, indicating potential quality or service issues.
+| Product ID | Average Rating |
+|------------|---------------|
+| P001634 | 2.00 ⚠️ |
+| P001271 | 2.00 ⚠️ |
+| P000974 | 2.00 ⚠️ |
 
-### Customer Engagement Funnel
-#### Event Type	  Count
-- View	          56,013
-- Cart	          12,035
-- Wishlist	      7,946
-- Purchase	      4,006
-  
-#### Insight
+**Insight:** Some products show poor customer satisfaction despite active sales — indicating potential quality, packaging, or expectation mismatch issues that need investigation.
 
-A large drop-off exists between product views and completed purchases, suggesting cart abandonment and checkout optimization opportunities.
+---
 
-### Customer Churn Analysis
+## 🔁 Customer Engagement Funnel
 
-Customers with no purchases in the last 90 days were identified as churn-risk customers.
+| Event Type | Count |
+|------------|-------|
+| View | 56,013 |
+| Cart | 12,035 |
+| Wishlist | 7,946 |
+| Purchase | 4,006 |
 
-#### Insight
+**Insight:** A large drop-off exists between product views (56K) and completed purchases (4K) — roughly a **7% conversion rate**. Cart abandonment and checkout friction are major optimization opportunities.
 
-Inactive users can be targeted through:
+---
 
-- re-engagement campaigns
-- personalized offers
-- loyalty rewards
-  
-## RFM Analysis
+## ⚠️ Customer Churn Analysis
 
-RFM Analysis was performed using:
+Customers with **no purchases in the last 90 days** were identified as churn-risk customers.
 
-- Recency
-- Frequency
-- Monetary value
+**Churn re-engagement strategies:**
+- Personalized discount offers via email
+- Loyalty reward reminders
+- Targeted re-engagement campaigns based on past purchase behavior
 
-### Insight
+---
 
-High-frequency and high-monetary customers represent loyal premium users, while low-frequency users are potential churn candidates.
+## 🎯 RFM Analysis
 
-### Window Function Analysis
-- DENSE_RANK()
+Customers were segmented using three dimensions:
 
-Used to rank top customers based on revenue contribution.
+| Dimension | Definition |
+|-----------|------------|
+| **Recency** | How recently did the customer purchase? |
+| **Frequency** | How often do they buy? |
+| **Monetary** | How much do they spend in total? |
 
-- LAG()
+**Insight:** High-frequency, high-monetary customers represent loyal premium users. Low-frequency users with recent activity are growth opportunities. Low-recency users are churn candidates.
 
-Used to compare daily sales trends with previous days and identify sales fluctuations.
+---
 
-## Business Insights
-- Revenue remained strong from March to October.
-- Customer retention rate is relatively healthy at 68.26%.
-- Significant customer drop-off occurs in the purchase funnel.
-- High-value customers contribute disproportionately to revenue.
-- Several products require quality improvement due to low ratings.
-- Cart abandonment appears to be a major business challenge.
+## 💡 Business Insights
 
-## Recommendations
-- Implement loyalty programs for repeat customers.
-- Improve checkout experience to reduce cart abandonment.
-- Target churn-risk customers with personalized campaigns.
-- Improve low-rated products using customer feedback analysis.
-- Focus marketing campaigns during high-performing sales months.
+- Revenue remained strong from **March to October**
+- Customer retention rate is healthy at **68.26%**
+- Significant drop-off occurs between **product view → purchase** (conversion funnel gap)
+- **Top customers** contribute disproportionately to revenue — Pareto pattern confirmed
+- Several products need **quality improvement** due to low ratings
+- **Cart abandonment** is a major business challenge requiring UX and pricing improvements
 
-## Tools & Technologies Used
-- SQL
-- MySQL
-- Data Analysis
--Business Analytics
+---
 
-## Future Improvements
-- Build an interactive Power BI dashboard
-- Perform customer segmentation
-- Add predictive churn analysis
+## 📌 Recommendations
 
-## Author
-### Shiva Pagidimarri
+| Recommendation | Expected Impact |
+|---------------|----------------|
+| Implement loyalty programs for repeat customers | Higher retention & CLV |
+| Improve checkout UX to reduce cart abandonment | Better conversion rate |
+| Target churn-risk customers with personalized campaigns | Recovered revenue |
+| Fix low-rated products using customer feedback | Improved satisfaction |
+| Focus marketing during July (peak month) | Maximized seasonal ROI |
+| Bundle best-sellers with low-performing products | Increased average order value |
 
+---
+
+## 🚀 Future Improvements
+
+- Build an interactive **Power BI dashboard** for visual KPI reporting
+- Add **customer segmentation** using clustering techniques
+- Implement **predictive churn modeling** with Python (Scikit-learn)
+- Automate monthly KPI reports using **stored procedures**
+
+---
+
+## ▶️ How to Run
+
+1. Clone the repository
+   ```bash
+   git clone https://github.com/PagidimarriShiva/Ecommerce-Sql-Business-Case-Study.git
+   cd Ecommerce-Sql-Business-Case-Study
+   ```
+
+2. Import datasets from the `Ecommerce_Datasets/` folder into MySQL
+
+3. Open and run `E-Commerce Sales & Customer Analysis.sql` in **MySQL Workbench**
+
+4. Review the `ER Diagram.png` for the database schema
+
+---
+
+## 👤 Author
+
+**Shiva Pagidimarri**
+Data Analyst | MySQL · SQL · Power BI · Python · Excel
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shiva-pagidimarri/)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/PagidimarriShiva)
